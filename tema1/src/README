@@ -1,0 +1,56 @@
+Oporanu Ioan Nicolae 334CA
+
+Tema LFA
+
+-Pentru stocarea datelor am creeat o clasa numita Input
+    *Aceasta clasa are un constructor care apeleaza functia readInp() care citeste
+     datele din fisier.
+
+    *Clasa are urmatoarele campuri:
+        -> n - numarul total de stari
+        -> m - numarul total de simboluri
+        -> s - numarul total de stari initiale
+        -> f - numarul total de stari finale
+        -> graph - graful care reprezinta automatul si tranzitiile lui 
+                   care este un Arraylist de Arraylist de intregi
+        -> complementarGraph - care este graful complementar
+        -> initialStates - care este arraylist-ul pentru starile initiale
+        -> finalStates - care este arraylist-ul pentru starile finale
+
+-Pentru partea de accessible:
+    *Am realizat o cautare BFS pe graful de tranzitii din fiecare stare initiala de plecare.
+
+    *Toate starile care erau accesate de aceste cautari erau stari accessible.
+    
+    *Afisam aceste stari.
+
+-Pentru partea de productive:
+    *Am realizat o functie care genereaza graful complementar care este stocat in complementarGraph.
+
+    *Apoi o cautare BFS pe graful complementar de tranzitii din fiecare stare finala de plecare.
+
+    *Toate starile care erau accesate de aceste cautari erau stari productive.
+
+    *Afisam aceste stari.
+
+-Pentru partea de useful:
+    *Pentru starile useful am aflat starile accessbile si productive ca mai sus.
+
+    *Apoi am luat starile comune din aceste 2 categorii.
+
+    *Am afisat aceste stari
+
+-Pentru partea de syncronize:
+    *Am facut o functie recursiva care realizeaza o cautare DFS pentru 2 stari din graf
+     care folosesc aceeasi secventa pentru a ajunge intr-o stare comuna.
+
+    *In functie de parametrii f si s am apelat aceasta functie pe fiecare 2 stari dintr-o
+     lista initiala care variaza in functie de s. Starea comuna trebuie sa faca parte din
+     starile finale citite din input daca f este diferit de 0.
+
+    *Dupa ce aflu o secventa pentru 2 stari din lista initiala, adaug secventa aflata la secventa mare, aplic
+     secventa pe toate starile din lista si le inlocuiesc cu starea in care le duce acea secventa. Apoi elimin 
+     eventualele stari duplicate din lista noua. Aplic acest algoritm pe lista pana cand ramane o singura stare in lista.
+
+    *Secventa mare unde au fost lipite toate secventele aflate reprezinta secventa de sincronizare a automatului si o afisez.
+
